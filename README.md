@@ -29,6 +29,7 @@
 - [ ] REST API (Bonus)
 
 ## Project Structure
+```
 product-management/
 │
 ├── src/
@@ -59,6 +60,7 @@ product-management/
 │
 ├── pom.xml (Maven dependencies)
 └── README.md
+```
 
 ### **1. List Functionality (Read Flow)**
 
