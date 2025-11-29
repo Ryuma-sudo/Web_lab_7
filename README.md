@@ -106,6 +106,8 @@ product-management/
         </tr>
     ```
 
+<img width="2141" height="744" alt="image" src="https://github.com/user-attachments/assets/dcc385f3-a621-4be3-805f-e113624e6134" />
+
 -----
 
 ### **2. Create Functionality (Create Flow)**
@@ -139,6 +141,9 @@ product-management/
         return productRepository.save(product);
     }
     ```
+    
+<img width="1097" height="1367" alt="image" src="https://github.com/user-attachments/assets/3bf36124-54e8-4431-9b44-5fb58dd59872" />
+<img width="1851" height="117" alt="image" src="https://github.com/user-attachments/assets/4bb5f2f5-ea83-4344-98b7-3be978cbf740" />
 
 -----
 
@@ -178,6 +183,9 @@ product-management/
 2.  **Controller & Service:**
     The form submits to the same `/products/save` endpoint. Because the `product` object now contains a non-null `id`, the `save()` method in the repository executes an **UPDATE** SQL statement instead of an INSERT.
 
+<img width="1093" height="1352" alt="image" src="https://github.com/user-attachments/assets/3bdb1fd7-5aa0-4f4d-9df8-9f0f646c9293" />
+<img width="2062" height="432" alt="image" src="https://github.com/user-attachments/assets/734bd577-79ce-4206-87a9-f058ef1ba9a4" />
+
 -----
 
 ### **4. Delete Functionality (Delete Flow)**
@@ -215,3 +223,10 @@ product-management/
         productRepository.deleteById(id);
     }
     ```
+
+<img width="2058" height="142" alt="image" src="https://github.com/user-attachments/assets/dc35d4c4-c760-498c-b9f4-be2d5af77d4d" />
+<img width="819" height="257" alt="image" src="https://github.com/user-attachments/assets/a38f98cf-da26-40f3-bb6f-ee894fa77541" />
+<img width="2156" height="924" alt="image" src="https://github.com/user-attachments/assets/4943a328-4fb3-4167-aec0-0e6b05f39e40" />
+
+
+
