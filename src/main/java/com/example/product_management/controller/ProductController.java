@@ -74,7 +74,7 @@ public class ProductController {
     public String advancedSearch(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "5") int size,
-        @RequestParam(defaultValue = "name") String sortBy,
+        @RequestParam(defaultValue = "id") String sortBy,
         @RequestParam(defaultValue = "asc") String sortDir,
         @RequestParam(required = false) String name,
         @RequestParam(required = false) String category,
