@@ -1,6 +1,7 @@
 package com.example.product_management.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*; // Import for Validation
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -13,18 +14,29 @@ public class Product {
     private Long id;
     
     @Column(name = "product_code", unique = true, nullable = false, length = 20)
+    @NotBlank(message = "Product code is required")
+    @Size(min = 3, max = 20, message = "Product code must be 3-20 characters")
+    @Pattern(regexp = "^P\\d{3,}$", message = "Product code must start with P followed by numbers")
     private String productCode;
     
     @Column(nullable = false, length = 100)
+    @NotBlank(message = "Product name is required")
+    @Size(min = 3, max = 100, message = "Name must be 3-100 characters")
     private String name;
     
     @Column(nullable = false, precision = 10, scale = 2)
+    @NotNull(message = "Price is required")
+    @DecimalMin(value = "0.01", message = "Price must be greater than 0")
+    @DecimalMax(value = "999999.99", message = "Price is too high")
     private BigDecimal price;
     
     @Column(nullable = false)
+    @NotNull(message = "Quantity is required")
+    @Min(value = 0, message = "Quantity cannot be negative")
     private Integer quantity;
     
     @Column(length = 50)
+    @NotBlank(message = "Category is required")
     private String category;
     
     @Column(columnDefinition = "TEXT")
@@ -53,79 +65,25 @@ public class Product {
     }
     
     // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    public String getProductCode() {
-        return productCode;
-    }
-    
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public BigDecimal getPrice() {
-        return price;
-    }
-    
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-    
-    public Integer getQuantity() {
-        return quantity;
-    }
-    
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-    
-    public String getCategory() {
-        return category;
-    }
-    
-    public void setCategory(String category) {
-        this.category = category;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-    
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getProductCode() { return productCode; }
+    public void setProductCode(String productCode) { this.productCode = productCode; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public BigDecimal getPrice() { return price; }
+    public void setPrice(BigDecimal price) { this.price = price; }
+    public Integer getQuantity() { return quantity; }
+    public void setQuantity(Integer quantity) { this.quantity = quantity; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", productCode='" + productCode + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                ", category='" + category + '\'' +
-                '}';
+        return "Product{id=" + id + ", productCode='" + productCode + "', name='" + name + "', price=" + price + "}";
     }
 }
